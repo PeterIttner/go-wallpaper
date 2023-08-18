@@ -1,0 +1,7 @@
+{
+    "x" : 1000,
+    "y" : 512,
+    "fontSize": 60,
+    "feedUrl": "https://peapix.com/bing/feed?country=de",
+    "fontPath": "fonts/arial.ttf"
+}
