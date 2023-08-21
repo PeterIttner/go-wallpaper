@@ -1,5 +1,7 @@
 # Wallpaper command line utility
 
+[![Go](https://github.com/PeterIttner/go-wallpaper/actions/workflows/go.yml/badge.svg)](https://github.com/PeterIttner/go-wallpaper/actions/workflows/go.yml)
+
 ## Features:
 
 - Set a random wallpaper from a directory
