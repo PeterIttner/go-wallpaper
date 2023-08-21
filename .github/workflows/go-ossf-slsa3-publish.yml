@@ -14,6 +14,20 @@
 name: SLSA Go releaser
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options:
+          - monalisa
+          - cschleiden
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
   release:
     types: [created]
 
@@ -31,7 +45,7 @@ jobs:
       actions: read   # To read workflow path.
     uses: slsa-framework/slsa-github-generator/.github/workflows/builder_go_slsa3.yml@v1.4.0
     with:
-      go-version: 1.21
+      go-version: 1.17
       # =============================================================================================================
       #     Optional: For more options, see https://github.com/slsa-framework/slsa-github-generator#golang-projects
       # =============================================================================================================
