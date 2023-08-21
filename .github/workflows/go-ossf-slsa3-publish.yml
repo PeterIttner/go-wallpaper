@@ -15,18 +15,9 @@ name: SLSA Go releaser
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options:
-          - monalisa
-          - cschleiden
-      message:
+      version:
         required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
-      environment:
+        description: The Version tag of the release
         type: environment
   release:
     types: [created]
