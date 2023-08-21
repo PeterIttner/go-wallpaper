@@ -6,14 +6,13 @@ import (
 	. "github.com/ahmetb/go-linq/v3"
 	"io"
 	"os"
-	"strconv"
+	"path/filepath"
+	"time"
 )
 
-func ReadWatchWords(xmlFilePath string) *FreeXML {
-
+func ReadWatchWords() FreeXML {
+	xmlFilePath, _ := filepath.Abs(fmt.Sprintf("watchwords/Losungen Free %04d.xml", time.Now().Year()))
 	xmlFile, err := os.Open(xmlFilePath)
-
-	// if we os.Open returns an error then handle it
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -24,16 +23,15 @@ func ReadWatchWords(xmlFilePath string) *FreeXML {
 	var watchWords FreeXML
 	xml.Unmarshal(fileBytes, &watchWords)
 
-	return &watchWords
+	return watchWords
 }
 
-func GetWatchWordsOfDay(data FreeXML, year int, month int, day int) Losungen {
+func GetWatchWordOfToday(data FreeXML) Losungen {
+	now := time.Now()
+
 	return From(data.Losungen).Where(func(d interface{}) bool {
-
-		monthZeroed := fmt.Sprintf("%02d", month)
-		dayZeroed := fmt.Sprintf("%02d", day)
-
-		return d.(Losungen).Datum == strconv.Itoa(year)+"-"+monthZeroed+"-"+dayZeroed+"T00:00:00"
+		date := fmt.Sprintf("%04d-%02d-%02dT00:00:00", now.Year(), int(now.Month()), now.Day())
+		return d.(Losungen).Datum == date
 	}).First().(Losungen)
 
 }

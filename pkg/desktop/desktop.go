@@ -4,7 +4,7 @@ import (
 	"github.com/reujab/wallpaper"
 )
 
-func ApplyWallpaper(imageOfTodayPath string) {
-	wallpaper.SetFromFile(imageOfTodayPath)
+func ApplyWallpaper(path string) {
+	wallpaper.SetFromFile(path)
 	wallpaper.SetMode(wallpaper.Crop)
 }

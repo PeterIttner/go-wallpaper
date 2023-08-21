@@ -1,7 +1,17 @@
 {
-    "x" : 1000,
-    "y" : 512,
-    "fontSize": 60,
+  "watchWords": {
+    "x": 2600,
+    "y": 260,
+    "fontSize": 40,
+    "fontPath": "fonts/arial.ttf",
+    "isActive": true
+  },
+  "bingFeed": {
     "feedUrl": "https://peapix.com/bing/feed?country=de",
-    "fontPath": "fonts/arial.ttf"
+    "isActive": true
+  },
+  "imageDirectory": {
+    "isActive": false,
+    "path": "C:/my_wallpaper_images_in_jpeg_format"
+  }
 }

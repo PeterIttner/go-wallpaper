@@ -1,9 +1,9 @@
 package main
 
 import (
-	"go-wp/internal/wallpaper"
+	"go-wp/internal/program"
 )
 
 func main() {
-	wallpaper.ApplyBingWallpaperOfTheDay()
+	program.Run()
 }

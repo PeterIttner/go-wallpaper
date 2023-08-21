@@ -18,6 +18,6 @@ func Get() *AppConfig {
 	var config AppConfig
 
 	json.Unmarshal(bytes, &config)
-	fmt.Println(config)
+	fmt.Printf("Using configuration: %v\n", config)
 	return &config
 }
