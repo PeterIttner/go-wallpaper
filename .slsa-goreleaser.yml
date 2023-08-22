@@ -19,10 +19,10 @@ goos: linux
 goarch: amd64
 
 # (Optional) Entrypoint to compile.
- main: ./cmd/wp/main.go
+ main: "./cmd/wp/main.go"
 
 # (Optional) Working directory. (default: root of the project)
- dir: ./cmd/wp
+ dir: "./cmd/wp"
 
 # Binary output name.
 # {{ .Os }} will be replaced by goos field in the config file.
