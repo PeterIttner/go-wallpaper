@@ -1,2 +1,8 @@
 builds:
   - main: ./cmd/wp
+
+includes:
+  - from_file:
+      path: ./cmd/wp/fonts/arial.ttf
+  - from_file:
+      path: ./cmd/wp/config.json
