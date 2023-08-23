@@ -1,6 +1,6 @@
 # Wallpaper command line utility
 
-[![Go](https://github.com/PeterIttner/go-wallpaper/actions/workflows/go.yml/badge.svg)](https://github.com/PeterIttner/go-wallpaper/actions/workflows/go.yml)
+[![BuildAndTest](https://github.com/PeterIttner/go-wallpaper/actions/workflows/ci.yml/badge.svg)](https://github.com/PeterIttner/go-wallpaper/actions/workflows/ci.yml)
 
 ## Features:
 
