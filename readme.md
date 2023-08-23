@@ -20,7 +20,7 @@
     "x": 2600,
     "y": 260,
     "fontSize": 40,
-    "fontPath": "fonts/arial.ttf",
+    "fontPath": "font/arial.ttf",
     "isActive": true
   },
   "bingFeed": {
@@ -43,7 +43,7 @@
     "x": 2600,
     "y": 260,
     "fontSize": 40,
-    "fontPath": "fonts/arial.ttf",
+    "fontPath": "font/arial.ttf",
     "isActive": true
   },
   "bingFeed": {
