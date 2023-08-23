@@ -16,4 +16,7 @@ type AppConfig struct {
 		IsActive bool   `json:"isActive"`
 		Path     string `json:"path"`
 	} `json:"imageDirectory"`
+	Desktop struct {
+		MaxWidth uint `json:"maxWidth"`
+	} `json:"desktop"`
 }

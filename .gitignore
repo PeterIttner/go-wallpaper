@@ -4,3 +4,6 @@ vendor
 /cmd/wp/wallpaper.jpg
 /cmd/wp/watchwords/Losungen Free 2023.xml
 /cmd/wp/watchwords/NUTZUNGSBEDINGUNGEN November 2022.pdf
+wp.exe
+cmd/wp/data/*
+cmd/wp/config/*

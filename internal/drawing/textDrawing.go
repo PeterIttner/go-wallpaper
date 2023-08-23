@@ -21,8 +21,18 @@ func DrawTextIntoImage(imagePath string, fontPath string, fontSize float64, x fl
 		panic(err)
 	}
 	dc.DrawImage(im, 0, 0)
-	//dc.DrawStringAnchored(text, x, y, 0, 0)
-	dc.DrawStringWrapped(text, x, y, 0, 0, 1000, 2, gg.AlignLeft)
+
+	w, h := dc.MeasureString(text)
+	margin := 20.0
+	dc.DrawRectangle(x-margin-w/2.0, y-margin-h/2.0, w+2*margin, h+2*margin)
+	dc.SetRGBA(1, 1, 1, 128)
+	dc.Fill()
+
+	dc.SetRGB(0, 0, 0)
+	//dc.DrawStringWrapped(text, x, y, 0, 0, 1000, 2, gg.AlignLeft)
+
+	dc.DrawStringAnchored(text, x, y, 0.5, 0.5)
+
 	dc.Clip()
 	dc.SavePNG(imagePath)
 }

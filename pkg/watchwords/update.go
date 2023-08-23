@@ -16,13 +16,13 @@ func UpdateWatchWords() {
 		// handle the case where the file doesn't exist
 
 		url := fmt.Sprintf("https://www.losungen.de/fileadmin/media-losungen/download/Losung_%04d_XML.zip", time.Now().Year())
-		err := web.DownloadFile("archive.zip", url)
+		err := web.DownloadFile("data/archive.zip", url)
 		if err != nil {
 			fmt.Printf("Could not download from %s\n", url)
 			os.Exit(1)
 		}
 
-		err = zip.Unzip("./archive.zip", "./watchwords")
+		err = zip.Unzip("./data/archive.zip", "./watchwords")
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)

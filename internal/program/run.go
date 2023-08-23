@@ -8,6 +8,7 @@ import (
 	"go-wp/internal/wallpaper"
 	"go-wp/pkg/desktop"
 	"go-wp/pkg/filesystem"
+	"go-wp/pkg/image"
 	"go-wp/pkg/watchwords"
 	"go-wp/pkg/web"
 	"os"
@@ -28,7 +29,7 @@ func Run() {
 	if cfg.BingFeed.IsActive && !cfg.ImageDirectory.IsActive {
 		images := wallpaper.GetBingImages(cfg.BingFeed.FeedUrl)
 		image := wallpaper.FindNewestImage(images)
-		imagePath, _ = filepath.Abs("wallpaper.jpg")
+		imagePath, _ = filepath.Abs("data/wallpaper.png")
 		web.DownloadFile(imagePath, image.ImageURL)
 	}
 
@@ -36,8 +37,15 @@ func Run() {
 		images := wallpaper.GetImagesOfDirectory(cfg.ImageDirectory.Path)
 		image := wallpaper.GetRandomImage(images)
 		fmt.Printf("Selected wallpaper from directory: %s\n", image)
-		filesystem.Copy(image, "wallpaper.jpg")
-		imagePath, _ = filepath.Abs("wallpaper.jpg")
+		filesystem.Copy(image, "data/wallpaper.jpg")
+		imagePath, _ = filepath.Abs("data/wallpaper.jpg")
+	}
+
+	if imagePath != "" {
+		fmt.Printf("Scale image\n")
+		image.Scale(imagePath, "data/wallpaper_resized.png", cfg.Desktop.MaxWidth)
+
+		imagePath, _ = filepath.Abs("data/wallpaper_resized.png")
 	}
 
 	if cfg.WatchWords.IsActive && imagePath != "" {
