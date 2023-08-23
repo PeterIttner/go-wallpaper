@@ -1,11 +1,11 @@
-name: release-with-go
+name: Deploy
 
 on:
   workflow_dispatch:
-  pull_request:
-  push:
+    branches:
+      - main
     tags:
-      - '*'
+      - 'v*'
 
 permissions:
   contents: write
@@ -26,17 +26,14 @@ jobs:
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v4
         with:
-          # either 'goreleaser' (default) or 'goreleaser-pro'
           distribution: goreleaser
           version: latest
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Your GoReleaser Pro key, if you are using the 'goreleaser-pro' distribution
-          # GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Secret created with https://github.com/settings/tokens/new
       -
         name: Upload assets
         uses: actions/upload-artifact@v3
         with:
-          name: myapp
-          path: myfolder/dist/*
+          name: wp
+          path: dist/*
