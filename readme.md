@@ -2,6 +2,8 @@
 
 [![BuildAndTest](https://github.com/PeterIttner/go-wallpaper/actions/workflows/ci.yml/badge.svg)](https://github.com/PeterIttner/go-wallpaper/actions/workflows/ci.yml)
 
+<img src="logo.jpg" width="350">
+
 ## Features:
 
 - Set a random wallpaper from a directory
