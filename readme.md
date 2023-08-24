@@ -7,7 +7,10 @@
 - Set a random wallpaper from a directory
 - Set the bing image of the day wallpaper
 - Enhance any wallpaper with the watch word of today
-- Can be configured via config file
+- Downloads current watchwords of the year if not present
+- Scales image to fixed width and keeps aspect ratio
+- Position, fontsize, urls, etc. can be configured via config file
+- Config file will be generated, if not present 
 
 ## Example config files:
 
@@ -17,10 +20,10 @@
 ```json
 {
   "watchWords": {
-    "x": 2600,
-    "y": 260,
-    "fontSize": 40,
-    "fontPath": "font/arial.ttf",
+    "x": 1500,
+    "y": 1000,
+    "fontSize": 30,
+    "fontPath": "fonts/arial.ttf",
     "isActive": true
   },
   "bingFeed": {
@@ -29,7 +32,10 @@
   },
   "imageDirectory": {
     "isActive": true,
-    "path": "C:/my_wallpaper_images_in_jpeg_format"
+    "path": "C:/tools/wp/images"
+  },
+  "desktop": {
+    "maxWidth": 2560
   }
 }
 ```
@@ -40,10 +46,10 @@
 ```json
 {
   "watchWords": {
-    "x": 2600,
-    "y": 260,
-    "fontSize": 40,
-    "fontPath": "font/arial.ttf",
+    "x": 1500,
+    "y": 1000,
+    "fontSize": 30,
+    "fontPath": "fonts/arial.ttf",
     "isActive": true
   },
   "bingFeed": {
@@ -52,7 +58,10 @@
   },
   "imageDirectory": {
     "isActive": false,
-    "path": "C:/my_wallpaper_images_in_jpeg_format"
+    "path": "C:/tools/wp/images"
+  },
+  "desktop": {
+    "maxWidth": 2560
   }
 }
 ```
@@ -71,5 +80,11 @@ go build .
 In `cmd/wp` directory run:
 
 ```bash
-go run wp.exe
+go run .
 ```
+
+### Github Release with GoReleaser
+
+[GoReleaser](https://goreleaser.com/)  is used to generate releases for different OS and architectures in github releases.
+
+[GoReleaser](https://goreleaser.com/) is triggered on every git-tag that starts with `v*`, e.g. `v1.0.0`.
