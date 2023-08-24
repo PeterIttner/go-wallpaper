@@ -5,7 +5,7 @@
 ## Features:
 
 - Set a random wallpaper from a directory
-- Set the bing image of the day wallpaper
+- Set the bing image of the day wallpaper (4K resolution)
 - Enhance any wallpaper with the watch word of today
 - Downloads current watchwords of the year if not present
 - Scales image to fixed width and keeps aspect ratio
@@ -88,3 +88,13 @@ go run .
 [GoReleaser](https://goreleaser.com/)  is used to generate releases for different OS and architectures in github releases.
 
 [GoReleaser](https://goreleaser.com/) is triggered on every git-tag that starts with `v*`, e.g. `v1.0.0`.
+
+### Useful information
+
+Project inspiration: [https://github.com/PeterIttner/BingWallpaper](https://github.com/PeterIttner/BingWallpaper)
+
+#### Links
+
+- [https://www.losungen.de/digital/daten](https://www.losungen.de/digital/daten)
+- [https://bing.gifposter.com/](https://bing.gifposter.com/)
+- [https://peapix.com/bing/feed?country=de](https://peapix.com/bing/feed?country=de) 4K Image API
