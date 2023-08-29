@@ -14,6 +14,38 @@
 - Position, fontsize, urls, etc. can be configured via config file
 - Config file will be generated, if not present 
 
+## Usage
+
+1. Download latest version from [releases](https://github.com/PeterIttner/go-wallpaper/releases).
+2. Unpack archieve and execute go-wallpaper[.exe] executable
+3. Adjust the default configuration file
+4. (Optional) Create a shortcut for your OS startup mechanism
+
+
+## Example command line parameters
+To override the config file behaviour you can execute the executable with the following commandline arguments:
+
+```shell
+# Print help
+go-wallpaper --help
+
+# Print the current version of the executable
+go-wallpaper version
+
+# Force using the directory from the config file as image source
+go-wallpaper dir
+
+# Force using the directory from the config file as image source
+go-wallpaper bing
+
+# Add this parameter with the previous commands to optionally enable printing the watchwords on top of the wallpaper 
+--watchwords
+
+# e.g.
+go-wallpaper dir --watchwords
+
+```
+
 ## Example config files:
 
 ### Example 1:
@@ -24,8 +56,8 @@
   "watchWords": {
     "x": 1500,
     "y": 1000,
-    "fontSize": 30,
-    "fontPath": "fonts/arial.ttf",
+    "fontSize": 50,
+    "fontPath": "fonts/Sketch.ttf",
     "isActive": true
   },
   "bingFeed": {
@@ -50,8 +82,8 @@
   "watchWords": {
     "x": 1500,
     "y": 1000,
-    "fontSize": 30,
-    "fontPath": "fonts/arial.ttf",
+    "fontSize": 50,
+    "fontPath": "fonts/Sketch.ttf",
     "isActive": true
   },
   "bingFeed": {
