@@ -2,8 +2,8 @@
   "watchWords": {
     "x": 1500,
     "y": 1000,
-    "fontSize": 30,
-    "fontPath": "fonts/arial.ttf",
+    "fontSize": 50,
+    "fontPath": "fonts/Sketch.ttf",
     "isActive": true
   },
   "bingFeed": {
