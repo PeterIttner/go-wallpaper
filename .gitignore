@@ -8,3 +8,4 @@ wp.exe
 cmd/wp/data/*
 cmd/wp/config/*
 cmd/wp/font/*
+/cmd/wp/fonts
