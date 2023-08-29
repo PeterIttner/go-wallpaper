@@ -15,25 +15,35 @@ import (
 	"path/filepath"
 )
 
-func Run() {
+func RunFromConfig() {
 	if !config.EnsureConfig() {
 		fmt.Printf("Config file created. Please adjust settings.")
 		os.Exit(0)
 	}
+	cfg := config.Get()
 
-	font.EnsureFont()
+	if cfg.BingFeed.IsActive && cfg.ImageDirectory.IsActive {
+		fmt.Printf("Only one of the options BingFeed or ImageDirectory can be active at the same time.")
+		os.Exit(1)
+	}
+	Run(cfg.BingFeed.IsActive, cfg.ImageDirectory.IsActive, cfg.WatchWords.IsActive)
+}
+
+func Run(useFeed bool, useDirectory bool, useWatchWords bool) {
 
 	cfg := config.Get()
+	font.EnsureFont()
+
 	var imagePath = ""
 
-	if cfg.BingFeed.IsActive && !cfg.ImageDirectory.IsActive {
+	if useFeed {
 		images := wallpaper.GetBingImages(cfg.BingFeed.FeedUrl)
 		image := wallpaper.FindNewestImage(images)
 		imagePath, _ = filepath.Abs("data/wallpaper.png")
 		web.DownloadFile(imagePath, image.ImageURL)
 	}
 
-	if cfg.ImageDirectory.IsActive && !cfg.BingFeed.IsActive {
+	if useDirectory {
 		images := wallpaper.GetImagesOfDirectory(cfg.ImageDirectory.Path)
 		image := wallpaper.GetRandomImage(images)
 		fmt.Printf("Selected wallpaper from directory: %s\n", image)
@@ -48,7 +58,7 @@ func Run() {
 		imagePath, _ = filepath.Abs("data/wallpaper_resized.png")
 	}
 
-	if cfg.WatchWords.IsActive && imagePath != "" {
+	if useWatchWords && imagePath != "" {
 		watchwords.UpdateWatchWords()
 		watchWords := watchwords.ReadWatchWords()
 		watchWord := watchwords.GetWatchWordOfToday(watchWords)
