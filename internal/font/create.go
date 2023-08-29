@@ -9,13 +9,13 @@ import (
 )
 
 var (
-	//go:embed arial.ttf
+	//go:embed Sketch.ttf
 	fontFile []byte
 )
 
 func EnsureFont() {
 
-	filename := "fonts/arial.ttf"
+	filename := "fonts/Sketch.ttf"
 	filepath := path.Dir(filename)
 
 	if filesystem.Exists(filename) {
